@@ -1,5 +1,26 @@
-type Note @model {
+# type Note @model {
+#   id: ID!
+#   name: String!
+#   description: String
+# }
+
+
+type Topic @model {
   id: ID!
-  name: String!
+  title: String!
   description: String
+  comments: [Comment] @connection(keyName: "TopicComments")
+  tags: [Tag] 
+}
+
+type Tag @model {
+  id: ID!
+  tag: String
+  topics: [Topic] @connection(keyName: "TopicComments")
+}
+
+type Comment @model {
+  id: ID!
+  text: String
+  topic: Topic
 }

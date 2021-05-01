@@ -1,60 +1,62 @@
 import logo from './logo.svg';
 import './App.css';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-import { listNotes } from './graphql/queries';
-import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations'
+import {  listTopics } from './graphql/queries';
+import { createTopic as createTopicMutation, deleteTopic as deleteTopicMutation } from './graphql/mutations'
 import { useEffect, useState } from 'react';
-import API from '@aws-amplify/api';
+import API, { graphqlOperation } from '@aws-amplify/api';
 
-const intitialFormState = { name: '', description: '' }
+const intitialFormState = { title: '', description: '' }
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [topics, setTopics] = useState([]);
   const [formData, setFormData] = useState(intitialFormState);
 
   useEffect(() => {
-    fetchNotes();
+    fetchTopics();   
   }, []);
 
-  async function fetchNotes() {
-    const apiData = await API.graphql({ queries: listNotes });
-    setNotes(apiData.data.listNotes.items);
+  async function fetchTopics() {
+    //const apiData = await API.graphql({ queries: listNotes });
+    const apiData = await API.graphql(graphqlOperation(listTopics));
+    setTopics(apiData.data.listTopics.items);
   }
 
-  async function createNote(){
-    if(!formData.name||!formData.description) return;
+  async function createTopic(){
+    if(!formData.title||!formData.description) return;
 
-    await API.graphql({query: createNoteMutation, variables: {input:formData}});
-    setNotes([...notes, formData]);
+    await API.graphql({query: createTopicMutation, variables: {input:formData}});
+    setTopics([...topics, formData]);
     setFormData(intitialFormState);
   }
 
-  async function deleteNote({ id }) {
-    const newNotesArray = notes.filter(note => note.id !== id);
-    setNotes(newNotesArray);
-    await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
+  async function deleteTopic({ id }) {
+    const newTopicsArray = topics.filter(topic => topic.id !== id);
+    setTopics(newTopicsArray);
+    await API.graphql({ query: deleteTopicMutation, variables: { input: { id } }});
   }
 
   return (
     <div className="App">
-      <h1>My Notes App</h1>
+      <div><img src={logo} height="100" width="100" alt="react logo"/></div>
+      <h1>Topics</h1>
       <input
-        onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Note name"
-        value={formData.name}
+        onChange={e => setFormData({ ...formData, 'title': e.target.value})}
+        placeholder="Topic Title"
+        value={formData.title}
       />
       <input
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Note description"
+        placeholder="Topic description"
         value={formData.description}
       />
-      <button onClick={createNote}>Create Note</button>
+      <button onClick={createTopic}>Create Topic</button>
       <div style={{marginBottom: 30}}>
         {
-          notes.map(note => (
-            <div key={note.id || note.name}>
-              <h2>{note.name}</h2>
-              <p>{note.description}</p>
-              <button onClick={() => deleteNote(note)}>Delete note</button>
+          topics.map(topic => (
+            <div key={topic.id || topic.title}>
+              <h2>{topic.title}</h2>
+              <p>{topic.description}</p>
+              <button onClick={() => deleteTopic(topic)}>Delete Topic</button>              
             </div>
           ))
         }
