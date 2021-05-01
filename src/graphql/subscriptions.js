@@ -1,102 +1,49 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTopic = /* GraphQL */ `
-  subscription OnCreateTopic {
-    onCreateTopic {
+export const onCreateExpenseType = /* GraphQL */ `
+  subscription OnCreateExpenseType {
+    onCreateExpenseType {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateTopic = /* GraphQL */ `
-  subscription OnUpdateTopic {
-    onUpdateTopic {
+export const onUpdateExpenseType = /* GraphQL */ `
+  subscription OnUpdateExpenseType {
+    onUpdateExpenseType {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteTopic = /* GraphQL */ `
-  subscription OnDeleteTopic {
-    onDeleteTopic {
+export const onDeleteExpenseType = /* GraphQL */ `
+  subscription OnDeleteExpenseType {
+    onDeleteExpenseType {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreateTag = /* GraphQL */ `
-  subscription OnCreateTag {
-    onCreateTag {
+export const onCreateExpense = /* GraphQL */ `
+  subscription OnCreateExpense {
+    onCreateExpense {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
@@ -108,15 +55,16 @@ export const onCreateTag = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateTag = /* GraphQL */ `
-  subscription OnUpdateTag {
-    onUpdateTag {
+export const onUpdateExpense = /* GraphQL */ `
+  subscription OnUpdateExpense {
+    onUpdateExpense {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
@@ -128,98 +76,21 @@ export const onUpdateTag = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteTag = /* GraphQL */ `
-  subscription OnDeleteTag {
-    onDeleteTag {
+export const onDeleteExpense = /* GraphQL */ `
+  subscription OnDeleteExpense {
+    onDeleteExpense {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
         }
         nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment {
-    onCreateComment {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment {
-    onUpdateComment {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment {
-    onDeleteComment {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt

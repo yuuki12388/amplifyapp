@@ -1,114 +1,61 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTopic = /* GraphQL */ `
-  mutation CreateTopic(
-    $input: CreateTopicInput!
-    $condition: ModelTopicConditionInput
+export const createExpenseType = /* GraphQL */ `
+  mutation CreateExpenseType(
+    $input: CreateExpenseTypeInput!
+    $condition: ModelExpenseTypeConditionInput
   ) {
-    createTopic(input: $input, condition: $condition) {
+    createExpenseType(input: $input, condition: $condition) {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const updateTopic = /* GraphQL */ `
-  mutation UpdateTopic(
-    $input: UpdateTopicInput!
-    $condition: ModelTopicConditionInput
+export const updateExpenseType = /* GraphQL */ `
+  mutation UpdateExpenseType(
+    $input: UpdateExpenseTypeInput!
+    $condition: ModelExpenseTypeConditionInput
   ) {
-    updateTopic(input: $input, condition: $condition) {
+    updateExpenseType(input: $input, condition: $condition) {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteTopic = /* GraphQL */ `
-  mutation DeleteTopic(
-    $input: DeleteTopicInput!
-    $condition: ModelTopicConditionInput
+export const deleteExpenseType = /* GraphQL */ `
+  mutation DeleteExpenseType(
+    $input: DeleteExpenseTypeInput!
+    $condition: ModelExpenseTypeConditionInput
   ) {
-    deleteTopic(input: $input, condition: $condition) {
+    deleteExpenseType(input: $input, condition: $condition) {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const createTag = /* GraphQL */ `
-  mutation CreateTag(
-    $input: CreateTagInput!
-    $condition: ModelTagConditionInput
+export const createExpense = /* GraphQL */ `
+  mutation CreateExpense(
+    $input: CreateExpenseInput!
+    $condition: ModelExpenseConditionInput
   ) {
-    createTag(input: $input, condition: $condition) {
+    createExpense(input: $input, condition: $condition) {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
@@ -120,18 +67,19 @@ export const createTag = /* GraphQL */ `
     }
   }
 `;
-export const updateTag = /* GraphQL */ `
-  mutation UpdateTag(
-    $input: UpdateTagInput!
-    $condition: ModelTagConditionInput
+export const updateExpense = /* GraphQL */ `
+  mutation UpdateExpense(
+    $input: UpdateExpenseInput!
+    $condition: ModelExpenseConditionInput
   ) {
-    updateTag(input: $input, condition: $condition) {
+    updateExpense(input: $input, condition: $condition) {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
@@ -143,110 +91,24 @@ export const updateTag = /* GraphQL */ `
     }
   }
 `;
-export const deleteTag = /* GraphQL */ `
-  mutation DeleteTag(
-    $input: DeleteTagInput!
-    $condition: ModelTagConditionInput
+export const deleteExpense = /* GraphQL */ `
+  mutation DeleteExpense(
+    $input: DeleteExpenseInput!
+    $condition: ModelExpenseConditionInput
   ) {
-    deleteTag(input: $input, condition: $condition) {
+    deleteExpense(input: $input, condition: $condition) {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
         }
         nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    updateComment(input: $input, condition: $condition) {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt

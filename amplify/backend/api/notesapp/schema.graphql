@@ -1,26 +1,12 @@
-# type Note @model {
-#   id: ID!
-#   name: String!
-#   description: String
-# }
-
-
-type Topic @model {
+type ExpenseType @model {
   id: ID!
-  title: String!
+  name: String!
   description: String
-  comments: [Comment] @connection(keyName: "TopicComments")
-  tags: [Tag] 
 }
 
-type Tag @model {
+type Expense @model {
   id: ID!
-  tag: String
-  topics: [Topic] @connection(keyName: "TopicComments")
-}
-
-type Comment @model {
-  id: ID!
-  text: String
-  topic: Topic
+  name: String!
+  description: String
+  topics: [ExpenseType] @connection(keyName: "ExpenseWithTypes")
 }

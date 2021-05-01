@@ -1,55 +1,28 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTopic = /* GraphQL */ `
-  query GetTopic($id: ID!) {
-    getTopic(id: $id) {
+export const getExpenseType = /* GraphQL */ `
+  query GetExpenseType($id: ID!) {
+    getExpenseType(id: $id) {
       id
-      title
+      name
       description
-      comments {
-        items {
-          id
-          text
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      tags {
-        id
-        tag
-        topics {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }
   }
 `;
-export const listTopics = /* GraphQL */ `
-  query ListTopics(
-    $filter: ModelTopicFilterInput
+export const listExpenseTypes = /* GraphQL */ `
+  query ListExpenseTypes(
+    $filter: ModelExpenseTypeFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listTopics(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listExpenseTypes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
+        name
         description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
         createdAt
         updatedAt
       }
@@ -57,15 +30,16 @@ export const listTopics = /* GraphQL */ `
     }
   }
 `;
-export const getTag = /* GraphQL */ `
-  query GetTag($id: ID!) {
-    getTag(id: $id) {
+export const getExpense = /* GraphQL */ `
+  query GetExpense($id: ID!) {
+    getExpense(id: $id) {
       id
-      tag
+      name
+      description
       topics {
         items {
           id
-          title
+          name
           description
           createdAt
           updatedAt
@@ -77,68 +51,19 @@ export const getTag = /* GraphQL */ `
     }
   }
 `;
-export const listTags = /* GraphQL */ `
-  query ListTags(
-    $filter: ModelTagFilterInput
+export const listExpenses = /* GraphQL */ `
+  query ListExpenses(
+    $filter: ModelExpenseFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listTags(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listExpenses(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        tag
+        name
+        description
         topics {
           nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      text
-      topic {
-        id
-        title
-        description
-        comments {
-          nextToken
-        }
-        tags {
-          id
-          tag
-          createdAt
-          updatedAt
-        }
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        text
-        topic {
-          id
-          title
-          description
-          createdAt
-          updatedAt
         }
         createdAt
         updatedAt
