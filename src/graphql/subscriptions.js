@@ -40,15 +40,12 @@ export const onCreateExpense = /* GraphQL */ `
       id
       name
       description
-      topics {
-        items {
-          id
-          name
-          description
-          createdAt
-          updatedAt
-        }
-        nextToken
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -61,15 +58,12 @@ export const onUpdateExpense = /* GraphQL */ `
       id
       name
       description
-      topics {
-        items {
-          id
-          name
-          description
-          createdAt
-          updatedAt
-        }
-        nextToken
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -82,15 +76,12 @@ export const onDeleteExpense = /* GraphQL */ `
       id
       name
       description
-      topics {
-        items {
-          id
-          name
-          description
-          createdAt
-          updatedAt
-        }
-        nextToken
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt

@@ -8,5 +8,5 @@ type Expense @model {
   id: ID!
   name: String!
   description: String
-  topics: [ExpenseType] @connection(keyName: "ExpenseWithTypes")
+  expenseType: ExpenseType!
 }
