@@ -1,12 +1,14 @@
-type ExpenseType @model {
-  id: ID!
-  name: String!
-  description: String
-}
-
 type Expense @model {
   id: ID!
   name: String!
   description: String
-  expenseType: ExpenseType!
+  expenseTypeId:ID!
+  expenseType: ExpenseType @connection(fields:["expenseTypeId"])
 }
+
+type ExpenseType @model {
+  id: ID!
+  name: String!
+  description: String  
+}
+

@@ -1,6 +1,63 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateExpense = /* GraphQL */ `
+  subscription OnCreateExpense {
+    onCreateExpense {
+      id
+      name
+      description
+      expenseTypeId
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateExpense = /* GraphQL */ `
+  subscription OnUpdateExpense {
+    onUpdateExpense {
+      id
+      name
+      description
+      expenseTypeId
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteExpense = /* GraphQL */ `
+  subscription OnDeleteExpense {
+    onDeleteExpense {
+      id
+      name
+      description
+      expenseTypeId
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateExpenseType = /* GraphQL */ `
   subscription OnCreateExpenseType {
     onCreateExpenseType {
@@ -29,60 +86,6 @@ export const onDeleteExpenseType = /* GraphQL */ `
       id
       name
       description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateExpense = /* GraphQL */ `
-  subscription OnCreateExpense {
-    onCreateExpense {
-      id
-      name
-      description
-      expenseType {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateExpense = /* GraphQL */ `
-  subscription OnUpdateExpense {
-    onUpdateExpense {
-      id
-      name
-      description
-      expenseType {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteExpense = /* GraphQL */ `
-  subscription OnDeleteExpense {
-    onDeleteExpense {
-      id
-      name
-      description
-      expenseType {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }

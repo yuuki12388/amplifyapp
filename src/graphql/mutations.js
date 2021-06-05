@@ -1,6 +1,72 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createExpense = /* GraphQL */ `
+  mutation CreateExpense(
+    $input: CreateExpenseInput!
+    $condition: ModelExpenseConditionInput
+  ) {
+    createExpense(input: $input, condition: $condition) {
+      id
+      name
+      description
+      expenseTypeId
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateExpense = /* GraphQL */ `
+  mutation UpdateExpense(
+    $input: UpdateExpenseInput!
+    $condition: ModelExpenseConditionInput
+  ) {
+    updateExpense(input: $input, condition: $condition) {
+      id
+      name
+      description
+      expenseTypeId
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteExpense = /* GraphQL */ `
+  mutation DeleteExpense(
+    $input: DeleteExpenseInput!
+    $condition: ModelExpenseConditionInput
+  ) {
+    deleteExpense(input: $input, condition: $condition) {
+      id
+      name
+      description
+      expenseTypeId
+      expenseType {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createExpenseType = /* GraphQL */ `
   mutation CreateExpenseType(
     $input: CreateExpenseTypeInput!
@@ -38,69 +104,6 @@ export const deleteExpenseType = /* GraphQL */ `
       id
       name
       description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createExpense = /* GraphQL */ `
-  mutation CreateExpense(
-    $input: CreateExpenseInput!
-    $condition: ModelExpenseConditionInput
-  ) {
-    createExpense(input: $input, condition: $condition) {
-      id
-      name
-      description
-      expenseType {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateExpense = /* GraphQL */ `
-  mutation UpdateExpense(
-    $input: UpdateExpenseInput!
-    $condition: ModelExpenseConditionInput
-  ) {
-    updateExpense(input: $input, condition: $condition) {
-      id
-      name
-      description
-      expenseType {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteExpense = /* GraphQL */ `
-  mutation DeleteExpense(
-    $input: DeleteExpenseInput!
-    $condition: ModelExpenseConditionInput
-  ) {
-    deleteExpense(input: $input, condition: $condition) {
-      id
-      name
-      description
-      expenseType {
-        id
-        name
-        description
-        createdAt
-        updatedAt
-      }
       createdAt
       updatedAt
     }

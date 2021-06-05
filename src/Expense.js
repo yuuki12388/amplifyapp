@@ -4,7 +4,7 @@ import { createExpense as createExpenseMutation, deleteExpense as deleteExpenseM
 import { useEffect, useState } from 'react';
 import API, { graphqlOperation } from '@aws-amplify/api';
 
-const intitialFormState = { name: '', description: '', expenseType:'' }
+const intitialFormState = { name: '', description: '', expenseTypeId: '' }
 
 function Expense() {
 
@@ -13,24 +13,31 @@ function Expense() {
     const [formData, setFormData] = useState(intitialFormState);
 
     useEffect(() => {
-        fetchExpenses();
+        fetchExpenseTypes();
+        fetchExpenses();        
     }, []);
 
-    async function fetchExpenses() {
-        //const apiData = await API.graphql({ queries: listNotes });
+    async function fetchExpenses() {        
         const apiData = await API.graphql(graphqlOperation(listExpenses));
         setExpenses(apiData.data.listExpenses.items);
 
-        const apiDataExpenseTypes = await API.graphql(graphqlOperation(listExpenseTypes));        
+        //const apiDataExpenseTypes = await API.graphql(graphqlOperation(listExpenseTypes));
+        //setExpenseTypes(apiDataExpenseTypes.data.listExpenseTypes.items);
+    }
+
+    async function fetchExpenseTypes() {              
+        const apiDataExpenseTypes = await API.graphql(graphqlOperation(listExpenseTypes));
         setExpenseTypes(apiDataExpenseTypes.data.listExpenseTypes.items);
     }
 
     async function createExpense() {
-        if (!formData.name || !formData.description || !formData.expenseType) return;
+        if (!formData.name || !formData.description || !formData.expenseTypeId) return;
 
-        await API.graphql({ query: createExpenseMutation, variables: { input: formData } });
-        setExpenses([...expenses, formData]);
+        await API.graphql({ query: createExpenseMutation, variables: { input: formData } });        
+        
         setFormData(intitialFormState);
+        fetchExpenses();
+        //setExpenses([...expenses, formData]);
     }
 
     async function deleteExpense({ id }) {
@@ -52,25 +59,26 @@ function Expense() {
                 placeholder="Description"
                 value={formData.description}
             />
-            <select onChange={e => setFormData({ ...formData, 'expenseType': e.target.value })}>
-                    <option>Select Expense Type</option>
-                    { 
-                        expenseTypes.map(expenseType => (
-                            <option key={expenseType.id} value={expenseType.id}>{expenseType.name}</option>
-                        ))
-                    } 
-                </select>
+            <select onChange={e => setFormData({ ...formData, 'expenseTypeId': e.target.value })}>
+                <option>Select Expense Type</option>
+                {
+                    expenseTypes.map(expenseType => (
+                        <option key={expenseType.id} value={expenseType.id}>{expenseType.name}</option>
+                    ))
+                }
+            </select>
             <button onClick={createExpense}>Create Expense</button>
             <div style={{ marginBottom: 30 }}>
                 {
                     expenses.map(expense => (
                         <div key={expense.id || expense.name}>
-                            <h2>{expense.name}</h2>
-                            <p>{expense.description}</p>
+                            <h2>Name: {expense.name}</h2>
+                            <p>Description: {expense.description}</p>
+                            <p>Expense Type: {expense.expenseType.name}</p>
                             <button onClick={() => deleteExpense(expense)}>Delete Expense</button>
                         </div>
                     ))
-                }                
+                }
             </div>
         </div>
     );
